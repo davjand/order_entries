@@ -11,7 +11,13 @@
 
 		var init = function() {
 			table = Symphony.Elements.contents.find('table');
-			fieldId = table.attr('data-order-entries-id');
+			
+			//fieldId = table.attr('data-order-entries-id');
+			/*
+				Bugfix for symphony 2.4
+			*/
+			fieldId = table.find('th.field-order_entries').attr('id').replace('field-','');
+			
 			direction = table.attr('data-order-entries-direction');
 
 			// Add help
